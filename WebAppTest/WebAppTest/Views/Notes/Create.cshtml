@@ -1,0 +1,78 @@
+﻿@model WebAppTest.Controllers.Note
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Создать запись</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+        <div class="form-group">  
+            <div class="input-group-prepend">
+                <span class="control-label input-group-text" id="inputGroup-sizing-sm" asp-for="Name">Имя</span>
+                    <input asp-for="Name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            </div>
+        </div>
+        <div class="form-group">  
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm" asp-for="Text">Текст</span>
+                <input asp-for="Text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            </div>
+        </div>
+        <div class="form-group">
+            <!--Дата-->
+            <div class="input-group mb-3">
+                <label class="control-label"></label>
+                <input asp-for="Date_system" class="form-control" />
+                <span asp-validation-for="Date_system" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm" asp-for="UrlNote">Комментарий</span>
+                    <input asp-for="UrlNote" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+            
+        </div>
+        <!--Выпадающий список-->
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label asp-for="Tag" class="control-label input-group-text" for="inputGroupSelect01">Тег</label>
+                </div>
+                <select asp-for="TagID" class="form-control custom-select" asp-items="ViewBag.TagID" id="inputGroupSelect01"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label asp-for="Category" class="control-label input-group-text" for="inputGroupSelect01">Категория</label>
+                </div>
+                <select asp-for="CategoryID" class="form-control custom-select" asp-items="ViewBag.CategoryID" id="inputGroupSelect01"></select>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <input type="submit" value="Сохранить" class="btn btn-outline-secondary" />
+        </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Вернуться к списку</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+
+}

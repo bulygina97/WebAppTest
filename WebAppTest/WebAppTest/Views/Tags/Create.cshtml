@@ -1,0 +1,47 @@
+﻿@model WebAppTest.Models.Tag
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Создание Тега</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <div class="input-group-prepend">
+                    <span class="control-label input-group-text" id="inputGroup-sizing-sm" asp-for="Name">Название Тега</span>
+                    <input asp-for="Name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group-prepend">
+                    <span class="control-label input-group-text" id="inputGroup-sizing-sm" asp-for="UrlSlug">Url</span>
+                    <input asp-for="UrlSlug" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group-prepend">
+                    <span class="control-label input-group-text" id="inputGroup-sizing-sm" asp-for="Description">Description</span>
+                    <input asp-for="Description" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+            </div>
+  
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-outline-secondary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Вернуться к списку</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
